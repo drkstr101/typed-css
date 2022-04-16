@@ -1,5 +1,3 @@
-
-
 # TypedCss
 
 This project was generated using [Nx](https://nx.dev).
@@ -7,6 +5,16 @@ This project was generated using [Nx](https://nx.dev).
 <p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
 
 🔎 **Smart, Fast and Extensible Build System**
+
+## Quick Start
+
+Ensure you can run the commands `yarn` and `make` on your system. Then run the following to checkout the code and build all for production.
+
+```sh
+git clone https://github.com/watheia/typed-css.git
+cd typed-css
+make ci
+```
 
 ## Adding capabilities to your workspace
 
@@ -78,8 +86,6 @@ Run `nx graph` to see a diagram of the dependencies of your projects.
 ## Further help
 
 Visit the [Nx Documentation](https://nx.dev) to learn more.
-
-
 
 ## ☁ Nx Cloud
 

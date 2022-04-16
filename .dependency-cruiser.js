@@ -228,7 +228,7 @@ module.exports = {
        to open it on your online repo or `vscode://file/${process.cwd()}/` to
        open it in visual studio code),
      */
-    prefix: 'https://github.com/drkstr101/waweb/blob/main/',
+    prefix: 'https://github.com/watheia/typed-css/blob/main/',
 
     /* false (the default): ignore dependencies that only exist before typescript-to-javascript compilation
        true: also detect dependencies that only exist before typescript-to-javascript compilation

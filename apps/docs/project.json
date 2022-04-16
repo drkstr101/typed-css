@@ -23,5 +23,10 @@
       }
     }
   },
-  "tags": []
+  "tags": [],
+  "implicitDependencies": [
+    "postcss-hover-class",
+    "postcss-hover-media",
+    "postcss-module-dts"
+  ]
 }

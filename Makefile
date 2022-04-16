@@ -13,18 +13,10 @@ ci: setup
 clean:
 	rm -rf yarn.lock coverage/ dist/ public/ node_modules/ **/__snapshots__/ apps/**/.cache/
 	yarn cache clean
-	bit clear-cache
+# bit clear-cache
 
 setup:
 	yarn install
-	# npm install --global @teambit/bvm
-	# bvm install
-	# bit config set analytics_reporting false
-	# bit config set interactive false
-	# bit init --harmony
-	# bit install
-	# bit compile
-	# bit status
 
 lint:
 	nx workspace-lint
