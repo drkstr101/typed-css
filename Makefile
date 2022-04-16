@@ -16,6 +16,7 @@ clean:
 	bit clear-cache
 
 setup:
+	sudo apt-get install -y graphviz
 	yarn install
 	# npm install --global @teambit/bvm
 	# bvm install
