@@ -1,0 +1,27 @@
+{
+  "root": "apps/docs",
+  "projectType": "application",
+  "sourceRoot": "apps/docs/src",
+  "targets": {
+    "build": {
+      "executor": "@nx-plus/docusaurus:browser",
+      "options": {
+        "outputPath": "dist/apps/docs"
+      }
+    },
+    "serve": {
+      "executor": "@nx-plus/docusaurus:dev-server",
+      "options": {
+        "port": 4200
+      }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "preset": "conventional",
+        "commitMessageFormat": "chore(${projectName}): release version ${version}"
+      }
+    }
+  },
+  "tags": []
+}
