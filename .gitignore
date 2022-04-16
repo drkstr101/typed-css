@@ -57,3 +57,7 @@ Thumbs.db
 .bit
 .sourcebit-nextjs-cache.json
 .docusaurus
+
+# Generated Docusaurus files
+.docusaurus/
+.cache-loader/

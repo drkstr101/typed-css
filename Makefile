@@ -11,12 +11,12 @@ ci: setup
 	$(MAKE) build
 
 clean:
-	rm -rf yarn.lock coverage/ dist/ public/ node_modules/ **/__snapshots__/ apps/**/.cache/
-	yarn cache clean
-# bit clear-cache
+	rimraf coverage/ dist/ public/ node_modules/ **/__snapshots__/ apps/docs/.docusaurus
+	pnpm store prune
 
 setup:
-	yarn install
+	npm install --global pnpm rimraf
+	pnpm install
 
 lint:
 	nx workspace-lint
@@ -33,15 +33,10 @@ start:
 	nx run docs:start
 
 docs:
-	nx run docs:build --parallel --bundleAnalyzer
+	nx run docs:build --parallel
 
 depgraph:
-	depcruise . \
-		--config .dependency-cruiser.js  \
-		--output-type dot \
-		--output-to apps/docs/static/img/depgraph.dot --prefix "https://github.com/drkstr101/watheia/blob/main/"
-	cat apps/docs/static/img/depgraph.dot | dot -T svg > apps/docs/static/img/depgraph.svg.tmp
-	mv apps/docs/static/img/depgraph.svg.tmp apps/docs/static/img/depgraph.svg
+	depcruise . --config .dependency-cruiser.js --output-type dot | dot -T svg > apps/docs/static/img/depgraph.svg
 
 
 
