@@ -16,7 +16,6 @@ clean:
 	bit clear-cache
 
 setup:
-	sudo apt-get install -y graphviz
 	yarn install
 	# npm install --global @teambit/bvm
 	# bvm install
@@ -41,7 +40,7 @@ build:
 start:
 	nx run docs:start
 
-docs: depgraph
+docs:
 	nx run docs:build --parallel --bundleAnalyzer
 
 depgraph:
