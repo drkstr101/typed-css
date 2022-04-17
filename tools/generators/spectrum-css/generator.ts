@@ -6,13 +6,17 @@ import {
   Tree,
   workspaceRoot,
 } from '@nrwl/devkit';
-import { basename, dirname, join } from 'path';
+import path, { basename, dirname, join } from 'path';
 import { SpectrumCssGeneratorSchema } from './schema';
 import glob from 'fast-glob';
+import { writeFile } from 'fs';
 
-const ignore = ['commons', 'overlays'];
+const ignore = ['commons', 'overlay'];
 
 const templatePath = join(__dirname, 'files');
+
+const toExportString = (name: string) =>
+  `export { default as ${name} } from './lib/components/${name}';`;
 
 /**
  * Given the original entry point to a css module component
@@ -24,27 +28,28 @@ export async function spectrumCssGenerator(
   schema: SpectrumCssGeneratorSchema
 ) {
   const { sourceRoot } = readProjectConfiguration(tree, schema.name);
-  const globString = `${sourceRoot}/lib/components/*/vars.css`;
-  const generator = async (entryPoint: string) => {
-    const sourceDir = dirname(entryPoint);
-    const name = basename(sourceDir);
-    const outputDir = `dist/${sourceDir}`;
-
-    // generate css modules
-    await generateFiles(tree, templatePath, sourceDir, {
-      name,
-      tmpl: '',
-    });
-
-    // copy source files to output
-    // await generateFiles(tree, sourceDir, outputDir, {});
-  };
+  const globString = join(sourceRoot, `/lib/components/*/vars.css`);
 
   // run the generators in parallel if supported
-  glob
-    .stream(globString, { ignore })
-    .on('data', generator)
-    .once('error', console.error);
+  const stream = glob.stream(globString, { ignore });
+  // .on('data', onStreamData)
+  // .once('end', onStreamEnd)
+  // .once('error', onStreamFail);
+
+  let entries = [];
+  for await (const entry of stream) {
+    if (typeof entry === 'string') {
+      const sourceDir = dirname(entry);
+      const name = basename(sourceDir);
+      const ctx = { name, tmpl: '' };
+      entries = [name, ...entries];
+      await generateFiles(tree, templatePath, sourceDir, ctx);
+    }
+  }
+
+  // export all components from the module entrypoint
+  const content = entries.map(toExportString).join('\n');
+  writeFile(join(sourceRoot, `index.ts`), content, console.error);
 }
 
 export default spectrumCssGenerator;

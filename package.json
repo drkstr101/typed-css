@@ -5,7 +5,8 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "depcruise": "depcruise --config .dependency-cruiser.js"
   },
   "private": true,
   "devDependencies": {
@@ -22,9 +23,9 @@
     "@types/node": "16.11.7",
     "@typescript-eslint/eslint-plugin": "~5.18.0",
     "@typescript-eslint/parser": "~5.18.0",
+    "dependency-cruiser": "^11.5.0",
     "eslint": "~8.12.0",
     "eslint-config-prettier": "8.1.0",
-    "fast-glob": "^3.2.11",
     "jest": "27.2.3",
     "nx": "13.10.2",
     "prettier": "^2.5.1",
@@ -33,6 +34,7 @@
   },
   "packageManager": "yarn@3.2.0",
   "dependencies": {
+    "fast-glob": "^3.2.11",
     "tslib": "^2.0.0"
   }
 }

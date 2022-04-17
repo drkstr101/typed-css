@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
-    "dev-spectrum-css": "libs/dev/spectrum-css"
+    "dev-spectrum-css": "libs/dev/spectrum-css",
+    "dev-types": "libs/dev/types"
   }
 }
