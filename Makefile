@@ -35,6 +35,9 @@ start:
 docs:
 	nx run docs:build --parallel --bundleAnalyzer
 
+spectrum-css:
+	nx workspace-generator spectrum-css --name=dev-spectrum-css
+
 depgraph:
 	depcruise . \
 		--config .dependency-cruiser.js  \
