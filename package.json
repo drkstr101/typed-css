@@ -10,6 +10,7 @@
   },
   "private": true,
   "devDependencies": {
+    "@docusaurus/module-type-aliases": "2.0.0-beta.13",
     "@nrwl/cli": "13.10.2",
     "@nrwl/devkit": "13.10.2",
     "@nrwl/eslint-plugin-nx": "13.10.2",
@@ -34,7 +35,14 @@
   },
   "packageManager": "yarn@3.2.0",
   "dependencies": {
+    "@docusaurus/core": "2.0.0-beta.13",
+    "@docusaurus/preset-classic": "2.0.0-beta.13",
+    "@mdx-js/react": "^1.6.21",
+    "clsx": "^1.1.1",
     "fast-glob": "^3.2.11",
+    "prism-react-renderer": "^1.2.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "tslib": "^2.0.0"
   }
 }
