@@ -1,5 +1,0 @@
-parser: sugarss
-map: false
-plugins:
-  postcss-modules:
-    scopeBehaviour: local

@@ -11,14 +11,14 @@ ci: setup
 	$(MAKE) build
 
 clean:
-	rimraf coverage/ dist/ public/ node_modules/ **/__snapshots__/ apps/docs/.docusaurus
-	pnpm store prune
+	rimraf coverage/ dist/ public/ tmp/ node_modules/ **/__snapshots__/ apps/docs/.docusaurus
+	yarn cache clean
 
 setup:
-	npm install --global pnpm rimraf
-	pnpm install
+	yarn install
 
 lint:
+	nx format
 	nx workspace-lint
 	nx run-many --all --target lint
 
