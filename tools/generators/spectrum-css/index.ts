@@ -1,8 +1,9 @@
 import { Tree, formatFiles, installPackagesTask } from '@nrwl/devkit';
-import { libraryGenerator } from '@nrwl/workspace/generators';
+import { spectrumCssGenerator } from './generator';
+import { SpectrumCssGeneratorSchema } from './schema';
 
-export default async function (tree: Tree, schema: any) {
-  await libraryGenerator(tree, { name: schema.name });
+export default async function (tree: Tree, schema: SpectrumCssGeneratorSchema) {
+  await spectrumCssGenerator(tree, schema);
   await formatFiles(tree);
   return () => {
     installPackagesTask(tree);

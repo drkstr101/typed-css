@@ -11,7 +11,17 @@
         "$source": "argv",
         "index": 0
       }
+    },
+    "tmpl": {
+      "type": "string",
+      "description": "Tmpl alias",
+      "$default": {
+        "$source": "argv",
+        "index": 1
+      }
     }
   },
-  "required": ["name"]
+  "required": [
+    "name"
+  ]
 }
