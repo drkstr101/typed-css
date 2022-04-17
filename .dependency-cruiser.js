@@ -10,8 +10,8 @@ module.exports = {
         'your solution (i.e. use dependency inversion, make sure the modules have a single responsibility) ',
       from: {},
       to: {
-        circular: true
-      }
+        circular: true,
+      },
     },
     {
       name: 'no-orphans',
@@ -26,16 +26,19 @@ module.exports = {
         orphan: true,
         pathNot: [
           '(^|/)\\.[^/]+\\.(js|cjs|mjs|ts|json)$', // dot files
-          '\\.json$', // json data
-          '(^|/)docs', // docs
-          '(^|/)__mocks__', // docs
-          '(^|/)libs/assets', // assets
+          '\\.(json|yml|yaml)$', // config data
+          '\\.(md|mdx)$', // content
+          '(^|/)apps/docs/src/css/custom\\.css$',
+          '(^|/)apps/docs/sidebars\\.js$',
+          '(^|/)__mocks__', // test
+          '(^|/)libs/assets/src', // assets
+          '(^|/)apps/docs/static', // assets
           '\\.d\\.ts$', // TypeScript declaration files
           '(^|/)tsconfig\\.json$', // TypeScript config
-          '(^|/)(jest|next|babel|webpack)\\.config\\.(js|cjs|mjs|ts|json)$' // other configs
-        ]
+          '(^|/)(jest|next|babel|webpack)\\.config\\.(js|cjs|mjs|ts|json)$', // other configs
+        ],
       },
-      to: {}
+      to: {},
     },
     {
       name: 'no-deprecated-core',
@@ -67,9 +70,9 @@ module.exports = {
           '^(constants)$',
           '^(sys)$',
           '^(_linklist)$',
-          '^(_stream_wrap)$'
-        ]
-      }
+          '^(_stream_wrap)$',
+        ],
+      },
     },
     {
       name: 'not-to-deprecated',
@@ -79,8 +82,8 @@ module.exports = {
       severity: 'warn',
       from: {},
       to: {
-        dependencyTypes: ['deprecated']
-      }
+        dependencyTypes: ['deprecated'],
+      },
     },
     {
       name: 'no-non-package-json',
@@ -92,20 +95,22 @@ module.exports = {
         'in your package.json.',
       from: {},
       to: {
-        dependencyTypes: ['npm-no-pkg', 'npm-unknown']
-      }
+        dependencyTypes: ['npm-no-pkg', 'npm-unknown'],
+      },
     },
-    {
-      name: 'not-to-unresolvable',
-      comment:
-        "This module depends on a module that cannot be found ('resolved to disk'). If it's an npm " +
-        'module: add it to your package.json. In all other cases you likely already know what to do.',
-      severity: 'error',
-      from: {},
-      to: {
-        couldNotResolve: true
-      }
-    },
+    // {
+    //   name: 'not-to-unresolvable',
+    //   comment:
+    //     "This module depends on a module that cannot be found ('resolved to disk'). If it's an npm " +
+    //     'module: add it to your package.json. In all other cases you likely already know what to do.',
+    //   severity: 'error',
+    //   from: {
+    //     pathNot: ""
+    //   },
+    //   to: {
+    //     couldNotResolve: true,
+    //   },
+    // },
     {
       name: 'no-duplicate-dep-types',
       comment:
@@ -115,8 +120,8 @@ module.exports = {
       severity: 'warn',
       from: {},
       to: {
-        moreThanOneDependencyType: true
-      }
+        moreThanOneDependencyType: true,
+      },
     },
 
     /* rules you might want to tweak for your specific situation: */
@@ -129,8 +134,8 @@ module.exports = {
       severity: 'error',
       from: {},
       to: {
-        path: '\\.(spec|test)\\.(js|mjs|cjs|ts|ls|coffee|litcoffee|coffee\\.md)$'
-      }
+        path: '\\.(spec|test)\\.(js|mjs|cjs|ts|ls|coffee|litcoffee|coffee\\.md)$',
+      },
     },
     {
       name: 'not-to-dev-dep',
@@ -148,12 +153,12 @@ module.exports = {
           '(^|/)jest\\.(config|setup|preset)\\.(js|cjs|mjs|ts|json)$',
           '(^|/)(next|babel|webpack)\\.config\\.(js|cjs|mjs|ts|json)$',
           '(^|/)tailwind-presets\\.config\\.js',
-          '(^|/)tools/generators/'
-        ]
+          '(^|/)tools/generators/',
+        ],
       },
       to: {
-        dependencyTypes: ['npm-dev']
-      }
+        dependencyTypes: ['npm-dev'],
+      },
     },
     {
       name: 'optional-deps-used',
@@ -165,8 +170,8 @@ module.exports = {
         'depdency-cruiser configuration.',
       from: {},
       to: {
-        dependencyTypes: ['npm-optional']
-      }
+        dependencyTypes: ['npm-optional'],
+      },
     },
     {
       name: 'peer-deps-used',
@@ -178,9 +183,9 @@ module.exports = {
       severity: 'warn',
       from: {},
       to: {
-        dependencyTypes: ['npm-peer']
-      }
-    }
+        dependencyTypes: ['npm-peer'],
+      },
+    },
   ],
   options: {
     /* conditions specifying which files not to follow further when encountered:
@@ -196,8 +201,8 @@ module.exports = {
         'npm-optional',
         'npm-peer',
         'npm-bundled',
-        'npm-no-pkg'
-      ]
+        'npm-no-pkg',
+      ],
     },
 
     /* conditions specifying which dependencies to exclude
@@ -206,8 +211,15 @@ module.exports = {
           leave out if you want to exclude neither (recommended!)
     */
     exclude: {
-      path: ['(^|/)\\.yarn$', '(^|/)\\.git$', '(^|/)\\.cache$', '(^|/)dist$', '(^|/)coverage$'],
-      dynamic: true
+      path: [
+        '(^|/)\\.yarn$',
+        '(^|/)\\.git$',
+        '(^|/)\\.cache$',
+        '(^|/)\\.docusaurus$',
+        '(^|/)dist$',
+        '(^|/)coverage$',
+      ],
+      dynamic: true,
     },
 
     /* pattern specifying which files to include (regular expression)
@@ -237,7 +249,19 @@ module.exports = {
     tsPreCompilationDeps: true,
 
     /* list of extensions (typically non-parseable) to scan. Empty by default. */
-    extraExtensionsToScan: ['.json', '.jpg', '.png', '.svg', '.webp'],
+    extraExtensionsToScan: [
+      '.json',
+      '.jpg',
+      '.png',
+      '.svg',
+      '.webp',
+      '.yml',
+      '.yaml',
+      '.css',
+      '.md',
+      '.mdx',
+      '.html',
+    ],
 
     /* if true combines the package.jsons found from the module up to the base
        folder the cruise is initiated from. Useful for how (some) mono-repos
@@ -257,7 +281,7 @@ module.exports = {
        defaults to './tsconfig.json'.
      */
     tsConfig: {
-      fileName: 'tsconfig.base.json'
+      fileName: 'tsconfig.base.json',
     },
 
     /* Webpack configuration to use to get resolve options from.
@@ -317,7 +341,7 @@ module.exports = {
         If you have a 'conditionNames' attribute in your webpack config, that one will
         have precedence over the one specified here.
       */
-      conditionNames: ['import', 'require', 'node', 'default']
+      conditionNames: ['import', 'require', 'node', 'default'],
     },
     reporterOptions: {
       dot: {
@@ -339,41 +363,41 @@ module.exports = {
               graphviz might take a long time calculating ortho(gonal)
               routings.
            */
-            splines: 'ortho'
+            splines: 'ortho',
           },
           modules: [
             {
               criteria: { source: '^src/model' },
-              attributes: { fillcolor: '#ccccff' }
+              attributes: { fillcolor: '#ccccff' },
             },
             {
               criteria: { source: '^src/view' },
-              attributes: { fillcolor: '#ccffcc' }
-            }
+              attributes: { fillcolor: '#ccffcc' },
+            },
           ],
           dependencies: [
             {
               criteria: { 'rules[0].severity': 'error' },
-              attributes: { fontcolor: 'red', color: 'red' }
+              attributes: { fontcolor: 'red', color: 'red' },
             },
             {
               criteria: { 'rules[0].severity': 'warn' },
-              attributes: { fontcolor: 'orange', color: 'orange' }
+              attributes: { fontcolor: 'orange', color: 'orange' },
             },
             {
               criteria: { 'rules[0].severity': 'info' },
-              attributes: { fontcolor: 'blue', color: 'blue' }
+              attributes: { fontcolor: 'blue', color: 'blue' },
             },
             {
               criteria: { resolved: '^src/model' },
-              attributes: { color: '#0000ff77' }
+              attributes: { color: '#0000ff77' },
             },
             {
               criteria: { resolved: '^src/view' },
-              attributes: { color: '#00770077' }
-            }
-          ]
-        }
+              attributes: { color: '#00770077' },
+            },
+          ],
+        },
       },
       archi: {
         /* pattern of modules that can be consolidated in the high level
@@ -382,7 +406,7 @@ module.exports = {
           this collapsePattern to your situation.
         */
         collapsePattern:
-          '^(packages|src|lib|app|bin|test(s?)|spec(s?))/[^/]+|node_modules/[^/]+'
+          '^(packages|src|lib|app|bin|test(s?)|spec(s?))/[^/]+|node_modules/[^/]+',
 
         /* Options to tweak the appearance of your graph.See
            https://github.com/sverweij/dependency-cruiser/blob/master/doc/options-reference.md#reporteroptions
@@ -392,8 +416,8 @@ module.exports = {
          */
         // theme: {
         // },
-      }
-    }
-  }
+      },
+    },
+  },
 };
 // generated: dependency-cruiser@11.2.1 on 2022-01-08T02:07:37.191Z
