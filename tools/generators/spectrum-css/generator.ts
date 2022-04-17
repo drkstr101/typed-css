@@ -26,13 +26,21 @@ export async function spectrumCssGenerator(
   const { sourceRoot } = readProjectConfiguration(tree, schema.name);
   const globString = `${sourceRoot}/lib/components/*/vars.css`;
   const generator = async (entryPoint: string) => {
-    const componentPath = dirname(entryPoint);
-    await generateFiles(tree, templatePath, componentPath, {
-      name: basename(componentPath),
+    const sourceDir = dirname(entryPoint);
+    const name = basename(sourceDir);
+    const outputDir = `dist/${sourceDir}`;
+
+    // generate css modules
+    await generateFiles(tree, templatePath, sourceDir, {
+      name,
       tmpl: '',
     });
+
+    // copy source files to output
+    // await generateFiles(tree, sourceDir, outputDir, {});
   };
 
+  // run the generators in parallel if supported
   glob
     .stream(globString, { ignore })
     .on('data', generator)

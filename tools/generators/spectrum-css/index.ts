@@ -5,7 +5,5 @@ import { SpectrumCssGeneratorSchema } from './schema';
 export default async function (tree: Tree, schema: SpectrumCssGeneratorSchema) {
   await spectrumCssGenerator(tree, schema);
   await formatFiles(tree);
-  return () => {
-    installPackagesTask(tree);
-  };
+  return () => void 0;
 }
