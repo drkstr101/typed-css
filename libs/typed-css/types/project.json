@@ -1,19 +1,23 @@
 {
-  "root": "packages/typed-css/types",
-  "sourceRoot": "packages/typed-css/types",
+  "root": "libs/typed-css/types",
+  "sourceRoot": "libs/typed-css/types",
   "projectType": "library",
   "targets": {
-    "build": {
+    "install": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
         "commands": [
-          "rm -rf dist/libs/typed-css/types",
-          "mkdir -p dist/libs/typed-css/types",
-          "mkdir -p node_modules/@typed-css",
-          "cp libs/typed-css/types/* dist/libs/typed-css/types/.",
-          "ln -s dist/libs/typed-css/types node_modules/@typed-css"
+          "mkdir -p dist/@typed-css/types",
+          "cp libs/typed-css/types/index.d.ts dist/@typed-css/types/index.d.ts",
+          "cp libs/typed-css/types/package.json dist/@typed-css/types/package.json",
+          "rm -rf node_modules/@types/typed-css",
+          "cp -r dist/@typed-css/types node_modules/@types/typed-css"
         ],
-        "parallel": false
+        "parallel": false,
+        "outputPath": [
+          "dist/@typed-css/types",
+          "node_modules/@types/typed-css"
+        ]
       }
     }
   }

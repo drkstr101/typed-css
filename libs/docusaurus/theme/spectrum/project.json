@@ -1,0 +1,45 @@
+{
+  "root": "libs/docusaurus/theme/spectrum",
+  "sourceRoot": "libs/docusaurus/theme/spectrum/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/docusaurus/theme/spectrum",
+        "tsConfig": "libs/docusaurus/theme/spectrum/tsconfig.lib.json",
+        "project": "libs/docusaurus/theme/spectrum/package.json",
+        "entryFile": "libs/docusaurus/theme/spectrum/src/index.ts",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "libs/docusaurus/theme/spectrum/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/docusaurus/theme/spectrum/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/docusaurus/theme/spectrum"],
+      "options": {
+        "jestConfig": "libs/docusaurus/theme/spectrum/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

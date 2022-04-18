@@ -16,11 +16,12 @@
     "baseUrl": ".",
     "paths": {
       "@site/*": ["apps/docs/*"],
-      "@typed-css/docs.config": ["libs/docs/config/src/index.ts"],
-      "@typed-css/docs.theme.spectrum": [
-        "libs/docs/theme/spectrum/src/index.ts"
-      ],
       "@typed-css/docs.ui": ["libs/docs/ui/src/index.ts"],
+      "@typed-css/docusaurus.config": ["libs/docusaurus/config/src/index.ts"],
+      "@typed-css/docusaurus.theme.spectrum": [
+        "libs/docusaurus/theme/spectrum/src/index.ts"
+      ],
+      "@typed-css/plugins.rollup": ["libs/plugins/rollup/src/index.ts"],
       "~blog/*": ["apps/docs/blog/*"],
       "~docs/*": ["apps/docs/docs/*"],
       "~pages/*": ["apps/docs/blog/src/pages*"]

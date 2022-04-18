@@ -5,7 +5,7 @@ PATH := ./node_modules/.bin:$(HOME)/bin:$(PATH)
 MAKE := make
 
 ci: setup
-	$(MAKE) depgraph
+# $(MAKE) depgraph
 	$(MAKE) lint
 	$(MAKE) test
 	$(MAKE) build
@@ -29,13 +29,13 @@ setup:
 
 lint:
 	nx workspace-lint
-	nx run-many --all --target lint
+	nx affected --target lint
 
 test:
-	nx run-many --all --target test
+	nx affected --target test
 
 build:
-	nx run-many --all --target build
+	nx affected --target=build
 
 # Run all in parallel
 start:

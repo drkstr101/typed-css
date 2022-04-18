@@ -4,6 +4,7 @@
     "esbenp.prettier-vscode",
     "dbaeumer.vscode-eslint",
     "firsttris.vscode-jest-runner",
-    "vunguyentuan.vscode-postcss"
+    "vunguyentuan.vscode-postcss",
+    "stylelint.vscode-stylelint"
   ]
 }

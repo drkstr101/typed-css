@@ -1,0 +1,32 @@
+{
+  "root": "libs/plugins/rollup",
+  "sourceRoot": "libs/plugins/rollup/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:swc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/plugins/rollup",
+        "main": "libs/plugins/rollup/src/index.ts",
+        "tsConfig": "libs/plugins/rollup/tsconfig.lib.json",
+        "assets": ["libs/plugins/rollup/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/plugins/rollup/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/plugins/rollup"],
+      "options": {
+        "jestConfig": "libs/plugins/rollup/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

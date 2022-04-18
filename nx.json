@@ -1,7 +1,7 @@
 {
   "npmScope": "typed-css",
   "affected": {
-    "defaultBase": "main"
+    "defaultBase": "v0alpha1"
   },
   "cli": {
     "defaultCollection": "@nrwl/react"
@@ -11,13 +11,20 @@
       "dependencies": "*",
       "devDependencies": "*"
     },
-    ".eslintrc.json": "*"
+    ".eslintrc.json": "*",
+    ".stylelintrc.json": "*"
   },
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e",
+          "stylelint"
+        ],
         "accessToken": "OGIwYTI5N2UtNzdiNC00YzU0LTljNGUtZGFkZTU0MWE3MTFhfHJlYWQtd3JpdGU="
       }
     }
