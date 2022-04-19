@@ -3682,9 +3682,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typed-css/types@workspace:packages/@typed-css/types":
+"@typed-css/types@workspace:libs/typed-css/types":
   version: 0.0.0-use.local
-  resolution: "@typed-css/types@workspace:packages/@typed-css/types"
+  resolution: "@typed-css/types@workspace:libs/typed-css/types"
   languageName: unknown
   linkType: soft
 

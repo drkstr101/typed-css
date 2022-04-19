@@ -21,6 +21,7 @@
   ],
   "implicitDependencies": [
     "docs-ui",
-    "docs-theme-spectrum"
+    "docs-theme-spectrum",
+    "typed-css-types"
   ]
 }

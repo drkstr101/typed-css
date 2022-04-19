@@ -1,0 +1,20 @@
+{
+  "root": "packages/typed-css/types",
+  "sourceRoot": "packages/typed-css/types",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          "rm -rf dist/libs/typed-css/types",
+          "mkdir -p dist/libs/typed-css/types",
+          "mkdir -p node_modules/@typed-css",
+          "cp libs/typed-css/types/* dist/libs/typed-css/types/.",
+          "ln -s dist/libs/typed-css/types node_modules/@typed-css"
+        ],
+        "parallel": false
+      }
+    }
+  }
+}

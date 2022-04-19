@@ -4,6 +4,7 @@
     "docs": "apps/docs",
     "docs-config": "libs/docs/config",
     "docs-theme-spectrum": "libs/docs/theme/spectrum",
+    "typed-css-types": "libs//typed-css/types",
     "docs-ui": "libs/docs/ui"
   }
 }
