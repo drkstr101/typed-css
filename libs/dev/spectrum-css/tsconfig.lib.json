@@ -6,6 +6,7 @@
     "types": ["node"],
     "resolveJsonModule": true
   },
+  "files": ["../../../packages/@typed-css/types/index.d.ts"],
   "include": ["**/*.ts"],
   "exclude": ["**/*.spec.ts"]
 }

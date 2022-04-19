@@ -1,15 +1,13 @@
 import {
   convertNxGenerator,
   generateFiles,
-  getWorkspaceLayout,
   readProjectConfiguration,
   Tree,
-  workspaceRoot,
 } from '@nrwl/devkit';
-import path, { basename, dirname, join } from 'path';
-import { SpectrumCssGeneratorSchema } from './schema';
 import glob from 'fast-glob';
 import { writeFile } from 'fs';
+import { basename, dirname, join } from 'path';
+import { SpectrumCssGeneratorSchema } from './schema';
 
 const ignore = ['commons', 'overlay'];
 
@@ -28,28 +26,29 @@ export async function spectrumCssGenerator(
   schema: SpectrumCssGeneratorSchema
 ) {
   const { sourceRoot } = readProjectConfiguration(tree, schema.name);
-  const globString = join(sourceRoot, `/lib/components/*/vars.css`);
+  const globString = `${sourceRoot}/lib/components/*/vars.css`;
+  const stream = glob
+    .stream([globString], { ignore })
+    .once('end', () => console.log('Done.'))
+    .once('error', (err) => console.error(err));
 
-  // run the generators in parallel if supported
-  const stream = glob.stream(globString, { ignore });
-  // .on('data', onStreamData)
-  // .once('end', onStreamEnd)
-  // .once('error', onStreamFail);
-
-  let entries = [];
+  let entries: string[] = [];
   for await (const entry of stream) {
     if (typeof entry === 'string') {
       const sourceDir = dirname(entry);
       const name = basename(sourceDir);
-      const ctx = { name, tmpl: '' };
       entries = [name, ...entries];
+      const ctx = { name, tmpl: '' };
       await generateFiles(tree, templatePath, sourceDir, ctx);
     }
   }
+  console.log('Entries:', entries);
 
   // export all components from the module entrypoint
   const content = entries.map(toExportString).join('\n');
-  writeFile(join(sourceRoot, `index.ts`), content, console.error);
+  const outputFile = `${sourceRoot}/index.ts`;
+  console.log(`outputting entries to ${outputFile}`);
+  return await writeFile(outputFile, content, console.error);
 }
 
 export default spectrumCssGenerator;
