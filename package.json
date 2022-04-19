@@ -60,6 +60,7 @@
     "@algolia/client-search": "^4.9.1",
     "@docusaurus/core": "^2.0.0-beta.13",
     "@docusaurus/preset-classic": "^2.0.0-beta.13",
+    "@docusaurus/theme-classic": "^2.0.0-beta.18",
     "@mdx-js/react": "^1.6.21",
     "clsx": "^1.1.1",
     "core-js": "^3.22.0",

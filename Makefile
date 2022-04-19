@@ -11,7 +11,16 @@ ci: setup
 	$(MAKE) build
 
 clean:
-	rm -rf yarn.lock coverage/ dist/ public/ node_modules/ **/__snapshots__/ apps/**/.cache/
+	rm -rf yarn.lock \
+		coverage/ \
+		dist/ \
+		public/ \
+		tmp/ \
+		node_modules/ \
+		**/__snapshots__/ \
+		**/.cache/ \
+		apps/docs/.docusaurus
+
 	yarn cache clean
 # bit clear-cache
 

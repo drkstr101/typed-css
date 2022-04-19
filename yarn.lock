@@ -2056,7 +2056,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/theme-classic@npm:2.0.0-beta.18":
+"@docusaurus/theme-classic@npm:2.0.0-beta.18, @docusaurus/theme-classic@npm:^2.0.0-beta.18":
   version: 2.0.0-beta.18
   resolution: "@docusaurus/theme-classic@npm:2.0.0-beta.18"
   dependencies:
@@ -16285,6 +16285,7 @@ __metadata:
     "@docusaurus/core": ^2.0.0-beta.13
     "@docusaurus/module-type-aliases": ^2.0.0-beta.13
     "@docusaurus/preset-classic": ^2.0.0-beta.13
+    "@docusaurus/theme-classic": ^2.0.0-beta.18
     "@mdx-js/react": ^1.6.21
     "@nrwl/cli": ^13.10.2
     "@nrwl/cypress": ^13.10.2

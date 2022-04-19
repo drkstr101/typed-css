@@ -115,5 +115,5 @@
 //     }),
 // };
 
-const config = require('@typed-css/docs.config');
+const config = require('../../dist/libs/docs/config').default;
 module.exports = config;
