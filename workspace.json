@@ -5,7 +5,6 @@
     "docs-ui": "libs/docs/ui",
     "docusaurus-config": "libs/docusaurus/config",
     "docusaurus-theme-spectrum": "libs/docusaurus/theme/spectrum",
-    "plugins-rollup": "libs/plugins/rollup",
     "typed-css-types": "libs/typed-css/types/"
   }
 }

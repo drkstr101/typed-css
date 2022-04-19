@@ -4162,6 +4162,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/sass@npm:^1":
+  version: 1.43.1
+  resolution: "@types/sass@npm:1.43.1"
+  dependencies:
+    "@types/node": "*"
+  checksum: 19eb71acc4b0d7db2170732a51ad18a34007021f42069652a5be8a3e3a448a470d2f970b9e85f734d1896bf3a25e48fb5132b4a989c101eb5df21cc171d426c5
+  languageName: node
+  linkType: hard
+
 "@types/sax@npm:^1.2.1":
   version: 1.2.4
   resolution: "@types/sax@npm:1.2.4"
@@ -15002,7 +15011,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^2.56.2":
+"rollup@npm:^2.56.2, rollup@npm:^2.70.2":
   version: 2.70.2
   resolution: "rollup@npm:2.70.2"
   dependencies:
@@ -15142,7 +15151,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.42.1":
+"sass@npm:^1.42.1, sass@npm:^1.50.0":
   version: 1.50.0
   resolution: "sass@npm:1.50.0"
   dependencies:
@@ -16842,6 +16851,7 @@ __metadata:
     "@types/node": ^16.11.27
     "@types/react": ^17.0.44
     "@types/react-dom": ^17.0.15
+    "@types/sass": ^1
     "@typescript-eslint/eslint-plugin": ~5.20.0
     "@typescript-eslint/parser": ~5.18.0
     babel-jest: ^27.5.1
@@ -16866,7 +16876,9 @@ __metadata:
     react-dom: ^17.0.2
     react-test-renderer: ^17.0.2
     regenerator-runtime: ^0.13.9
+    rollup: ^2.70.2
     rollup-plugin-postcss: ^4.0.2
+    sass: ^1.50.0
     stylelint: ^14.5.3
     stylelint-config-prettier: ^9.0.3
     stylelint-config-standard: ^25.0.0
