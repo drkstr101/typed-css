@@ -33,7 +33,7 @@ start:
 	nx run docs:start
 
 docs:
-	nx run docs:build --parallel --bundleAnalyzer
+	nx run docs:build --parallel
 
 spectrum-css:
 	nx workspace-generator spectrum-css --name=dev-spectrum-css

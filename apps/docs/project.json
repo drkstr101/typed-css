@@ -18,5 +18,8 @@
   },
   "tags": [
     "www"
+  ],
+  "implicitDependencies": [
+    "docs-ui"
   ]
 }

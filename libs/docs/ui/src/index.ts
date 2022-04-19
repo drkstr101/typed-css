@@ -1,2 +1,5 @@
-export type { HomepageFeaturesProps } from './lib/homepage-features';
-export { default as HomepageFeatures } from './lib/homepage-features';
+export type {
+  HomepageFeaturesProps,
+  FeatureItem,
+} from './lib/homepage-features';
+export { default as HomepageFeatures, features } from './lib/homepage-features';

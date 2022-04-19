@@ -1,13 +1,18 @@
+import FeatureItem from './feature-item';
 import styles from './homepage-features.module.css';
+import { HomepageFeaturesProps } from './types';
 
-/* eslint-disable-next-line */
-export interface HomepageFeaturesProps {}
-
-export function HomepageFeatures(props: HomepageFeaturesProps) {
+export function HomepageFeatures({ items, ...props }: HomepageFeaturesProps) {
   return (
-    <div className={styles['container']}>
-      <h1>Welcome to HomepageFeatures!</h1>
-    </div>
+    <section className={styles.container}>
+      <div className="container">
+        <div className="row">
+          {items.map((props, idx) => (
+            <FeatureItem key={idx} {...props} />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 

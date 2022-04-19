@@ -17,7 +17,11 @@
     "paths": {
       "@typed-css/dev.spectrum-css": ["libs/dev/spectrum-css/src/index.ts"],
       "@typed-css/dev.types": ["libs/dev/types/src/index.ts"],
-      "@typed-css/docs.ui": ["libs/docs/ui/src/index.ts"]
+      "@typed-css/docs.ui": ["libs/docs/ui/src/index.ts"],
+      "@site/*": ["apps/docs/*"],
+      "~docs/*": ["apps/docs/docs/*"],
+      "~blog/*": ["apps/docs/blog/*"],
+      "~pages/*": ["apps/docs/blog/src/pages*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -11,10 +11,6 @@
       "node",
       "@docusaurus/module-type-aliases",
       "@docusaurus/theme-classic"
-    ],
-    "baseUrl": ".",
-    "paths": {
-      "@site/*": ["./*"]
-    }
+    ]
   }
 }

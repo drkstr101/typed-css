@@ -1,3 +1,4 @@
 {
-  "cSpell.words": ["camelcase", "devkit"]
+  "cSpell.words": ["camelcase", "devkit"],
+  "typescript.tsdk": "node_modules\\typescript\\lib"
 }
