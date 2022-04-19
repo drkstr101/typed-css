@@ -16,8 +16,10 @@
     "baseUrl": ".",
     "paths": {
       "@site/*": ["apps/docs/*"],
-      "@typed-css/dev.spectrum-css": ["libs/dev/spectrum-css/src/index.ts"],
       "@typed-css/docs.config": ["libs/docs/config/src/index.ts"],
+      "@typed-css/docs.theme.spectrum": [
+        "libs/docs/theme/spectrum/src/index.ts"
+      ],
       "@typed-css/docs.ui": ["libs/docs/ui/src/index.ts"],
       "~blog/*": ["apps/docs/blog/*"],
       "~docs/*": ["apps/docs/docs/*"],

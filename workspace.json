@@ -1,9 +1,9 @@
 {
   "version": 2,
   "projects": {
-    "dev-spectrum-css": "libs/dev/spectrum-css",
     "docs": "apps/docs",
     "docs-config": "libs/docs/config",
+    "docs-theme-spectrum": "libs/docs/theme/spectrum",
     "docs-ui": "libs/docs/ui"
   }
 }

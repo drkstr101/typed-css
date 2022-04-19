@@ -1,0 +1,33 @@
+{
+  "root": "libs/docs/theme/spectrum",
+  "sourceRoot": "libs/docs/theme/spectrum/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/docs/theme/spectrum",
+        "main": "libs/docs/theme/spectrum/src/index.ts",
+        "tsConfig": "libs/docs/theme/spectrum/tsconfig.lib.json",
+        "assets": ["libs/docs/theme/spectrum/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/docs/theme/spectrum/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/docs/theme/spectrum"],
+      "options": {
+        "jestConfig": "libs/docs/theme/spectrum/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["dev"]
+}
