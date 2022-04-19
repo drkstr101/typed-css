@@ -2,8 +2,8 @@
   "version": 2,
   "projects": {
     "dev-spectrum-css": "libs/dev/spectrum-css",
-    "dev-types": "libs/dev/types",
     "docs": "apps/docs",
+    "docs-config": "libs/docs/config",
     "docs-ui": "libs/docs/ui"
   }
 }
