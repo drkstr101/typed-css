@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@typed-css/dev.spectrum-css": ["libs/dev/spectrum-css/src/index.ts"],
-      "@typed-css/dev.types": ["libs/dev/types/src/index.ts"]
+      "@typed-css/dev.types": ["libs/dev/types/src/index.ts"],
+      "@typed-css/docs.ui": ["libs/docs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

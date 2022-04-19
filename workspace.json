@@ -3,6 +3,7 @@
   "projects": {
     "dev-spectrum-css": "libs/dev/spectrum-css",
     "dev-types": "libs/dev/types",
-    "docs": "apps/docs"
+    "docs": "apps/docs",
+    "docs-ui": "libs/docs/ui"
   }
 }
